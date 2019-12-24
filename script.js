@@ -1,4 +1,5 @@
 //var randomColor1 = Math.floor(Math.random() * 16777215).toString(16);
+
 /*
 function getRandomColor() {
   var letters = "0123456789ABCDEF".split("");
@@ -41,6 +42,31 @@ child[0].textContent = randomColor.slice(0, 2);
 child[1].textContent = randomColor.slice(2, 4);
 child[2].textContent = randomColor.slice(4, 6);
 
+const colorHex = () => {
+  var randomColor = (Math.random().toString(16) + '000000').slice(2, 8);
+  let a = randomColor.slice(0, 2);
+  let b = randomColor.slice(2, 4);
+  let c = randomColor.slice(4, 6);
+
+  let hexArray = [a, b, c];
+  console.log('TCL: colorHex -> hexArray', hexArray);
+  return hexArray;
+};
+
+shuffleColors = a => {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  console.log(a);
+  return a;
+};
+
+let currentHex = colorHex();
+
+shuffleColors(currentHex);
+
+/*
 //display rgb
 var display2 = document.getElementById('display2');
 var currentRGB = colorRGB();
@@ -61,3 +87,4 @@ child2[1].textContent = currentRGB[1];
 child2[1].style.backgroundColor = 'rgb(' + 0 + ',' + currentRGB[1] + ',' + 0 + ')';
 child2[2].textContent = currentRGB[2];
 child2[2].style.backgroundColor = 'rgb(' + 0 + ',' + 0 + ',' + currentRGB[2] + ')';
+*/
