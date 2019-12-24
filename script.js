@@ -42,6 +42,7 @@ child[0].textContent = randomColor.slice(0, 2);
 child[1].textContent = randomColor.slice(2, 4);
 child[2].textContent = randomColor.slice(4, 6);
 
+//FOR REACT
 const colorHex = () => {
   var randomColor = (Math.random().toString(16) + '000000').slice(2, 8);
   let a = randomColor.slice(0, 2);
@@ -49,22 +50,30 @@ const colorHex = () => {
   let c = randomColor.slice(4, 6);
 
   let hexArray = [a, b, c];
-  console.log('TCL: colorHex -> hexArray', hexArray);
+
   return hexArray;
 };
 
-shuffleColors = a => {
+const shuffleColors = a => {
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [a[i], a[j]] = [a[j], a[i]];
   }
-  console.log(a);
+
   return a;
 };
 
 let currentHex = colorHex();
+console.log('TCL: currentHex', currentHex);
+let shuffledHex = [...currentHex];
+let shuffledHex2 = shuffleColors(shuffledHex);
+console.log('TCL: shuffledHex2', shuffledHex2);
+var display3 = document.getElementById('display3');
 
-shuffleColors(currentHex);
+display3.style.backgroundColor = `#${shuffledHex2.join('')}`;
+console.log(shuffledHex2[0].toUpperCase());
+console.log(shuffledHex2[1].toUpperCase());
+console.log(shuffledHex2[2].toUpperCase());
 
 /*
 //display rgb
